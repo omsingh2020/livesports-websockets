@@ -1,4 +1,6 @@
 import express from 'express';
+import { matchRouter } from './src/validation/routes/matches.js';
+
 const app = express();
 const PORT = 8000;
 
@@ -9,6 +11,8 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to the LiveSports API!' });
 });
+
+app.use('/matches', matchRouter)
 
 // Start server and log URL
 app.listen(PORT, () => {``
